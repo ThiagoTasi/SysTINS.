@@ -19,47 +19,29 @@ namespace SysTINSClass
 
         public Produtos() { } // método construtor (new)
 
-        public Produtos( int categoriaid, string? codbarras, string? descricao, double? valorunit, string? unidadevenda, double? estoqueminimo, double? desconto)
+        public Produtos( int categoriaid, string? codbarras, string? descricao, string? unidadevenda, double? valorunit, double? estoqueminimo)
         {
-            CategoriaId = categoriaid;
+          
             CodBarras = codbarras;
             Descricao = descricao;
-            ValorUnit = valorunit;
             UnidadeVenda = unidadevenda;
+        {
+        public Produtos(double? valorunit, double? estoqueminimo)
+        {
+            ValorUnit = valorunit;
             EstoqueMinimo = estoqueminimo;
-            Desconto = desconto;
+                    
+        {
+        public Produtos(int categoriaid, string? codbarras, string? descricao, string? unidadevenda, double? valorunit, double? estoqueminimo)
+        {
 
-            public Produto()
-            {
-                CategoriaId = new();
-            }
-            public Produto(int categoriaId, string codbarras, string descricao, double valorunit, string unidadevenda, double estoqueminimo, double desconto)
-            {
-                CategoriaId = categoriaid;
-                CodBarras = codbarras;
-                Descricao = descricao;
-                ValorUnit = valorunit;
-                UnidadeVenda = unidadevenda;
-                EstoqueMinimo = estoqueminimo;
-                Desconto = desconto;
-
-            }
-            public Usuario(string nome, string email, string senha, Nivel nivel, bool ativo)
-            {
-                Nome = nome;
-                Email = email;
-                Senha = senha;
-                Nivel = nivel;
-                Ativo = ativo;
-            }
-            public Usuario(int id, string nome, string email, string senha, Nivel nivel, bool ativo)
-            {
-                Id = id;
-                Nome = nome;
-                Email = email;
-                Senha = senha;
-                Nivel = nivel;
-                Ativo = ativo;
+             CategoriaId = Categoriaid;
+             CodBarras = codbarras;
+             Descricao = descricao;
+             UnidadeVenda = unidadevenda;
+             ValorUnit = valorunit;
+             EstoqueMinimo = estoqueminimo;
+        {
             }
             // inserir 
             public void Inserir()
