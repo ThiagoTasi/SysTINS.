@@ -1,4 +1,5 @@
-﻿using System;
+﻿using K4os.Compression.LZ4.Internal;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -6,74 +7,77 @@ using System.Threading.Tasks;
 
 namespace SysTINSClass
 {
-    internal class Categoria
+    public class Categoria
     {
+       
+
+        public int Id { get; set; }
         public string? Nome { get; set; }
         public string? Sigla { get; set; }
+    }
+    public Categoria(string? nome, string? sigla)
+    {
+        Nome = nome;
+        Sigla = sigla;
+    }
 
-        public Categoria() { } // método construtor (new)
 
-        public Categoria(string? nome, string? sigla)
+    public Categoria(int id, string? nome, string? sigla)
+    {
+        Id = id;
+        Nome = nome;
+        Sigla = sigla;
+    }
+    public void Inserir()
+    {
+
+    }
+
+  
+    public static Categoria ObterPorId(int id)
+    {
+        Categoria categoria = new();
+        var cmd = Banco.Abrir();
+        cmd.CommandText = $"select * from categorias where id = {id}";
+        var dr = cmd.ExecuteReader();
+        while (dr.Read())
         {
-            Nome = nome;
-            Sigla = sigla;
+            categorias.Add
         }
 
-        // inserir
-        public void Inserir()
-        {
-            var cmd = Banco.Abrir();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = $"insert categoria (nome, sigla) values ('{Nome}','{Sigla}') ";
-            cmd.ExecuteNonQuery();
-            cmd.Connection.Close();
-        }
-        // consultar por id
-        public static Categoria ObterPorId(int id)
-        {
-            Categoria categoria = new();
-            var cmd = Banco.Abrir();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = $"select id, nome, sigla from categoria where id = {id}";
-            var dr = cmd.ExecuteReader();
-            if (dr.Read())
-            {
-                //categoria.Nome = dr.GetString(0);
-                //categoria.Sigla= dr.GetString(1);
-                categoria = new(dr.GetString(0), dr.GetString(1));
-            }
-            cmd.Connection.Close();
-            return categoria;
-        }
-        // obter lista
-        public static List<Categoria> ObterLista()
-        {
-            List<Categoria> lista = new();
-            var cmd = Banco.Abrir();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = "select * from categoria order by nome asc";
-            var dr = cmd.ExecuteReader();
-            while (dr.Read())
-            {
-                lista.Add(new(dr.GetString(0), dr.GetString(1)));
-            }
-            cmd.Connection.Close();
-            return lista;
-        }
-        // atualizar
-        public bool Atualizar()
-        {
-            var cmd = Banco.Abrir();
-            cmd.CommandType = System.Data.CommandType.Text;
-            cmd.CommandText = $"update categoria set nome = '{Nome}', sigla = '{Sigla}'";
-            return cmd.ExecuteNonQuery() > 0 ? true : false;
-        }
-        // deletar nivel
-        public void Excluir()
-        {
-            var cmd = Banco.Abrir();
-            cmd.CommandText = $"delete from categoria";
-            cmd.ExecuteNonQuery();
-        }
+        return categoria;
+    }
+    public static List<Categoria> ObterLista()
+    {
+        List<Categoria> categorias = new();
+        return categorias;
+    }
+    public bool Atualizar()
+    {
+        bool resposta = false;
+        var cmd = Banco.Abrir();
+        cmd.CommandType = System.Data.CommandType.StoredProcedure;
+        cmd.ConfigureAwait = "sp_categoria_insert";
+        // spid int, spnome vatchar(40), spsigla char(3)
+        cmd.Parameters.AddWithValue("spid", Id);
+        cmd.Parameters.AddWithValue("spnome", Nome);
+        cmd.Parameters.AddWithValue("spsigla", Sigla);
+
+
+        if (cmd.ExecuteNonQuery() > 0)
+
+        return resposta;
+    }
+    public void Excluir()
+    {
+
     }
 }
+
+
+
+
+
+
+
+

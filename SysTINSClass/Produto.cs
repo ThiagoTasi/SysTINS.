@@ -7,56 +7,77 @@ using System.Threading.Tasks;
 
 namespace SysTINSClass
 {
-    internal class Produtos
+    public class Produto
     {
-        public int CategoriaId { get; set; }
+        public int Id { get; set; }
         public string? CodBarras { get; set; }
         public string? Descricao { get; set; }
         public string? ValorUnit { get; set; }
-        public string? UnidadeVenda { get; set; }
-        public string? EstoqueMinimo { get; set; }
-        public string? Desconto { get; set; }
+        public double? UnidadeVenda { get; set; }
+        public Categoria Categoria { get; set;  }
+        public double? EstoqueMinimo { get; set; }
+        public string? ClasseDesconto { get; set; }
+        public DateTime? DataCad { get; set; }
 
-        public Produtos() { } // método construtor (new)
 
-        public Produtos( int categoriaid, string? codbarras, string? descricao, string? unidadevenda, double? valorunit, double? estoqueminimo)
+
+        public Produto() // método construtor (new)
         {
-          
-            CodBarras = codbarras;
+            Categoria = new();
+        }
+
+
+
+        public Produto( string? codBarras, string? descricao, string? valorUnit, double? unidadeVenda, Categoria categoria, double? estoqueMinimo, string? classeDesconto, DateTime? dataCad)
+        {
+            CodBarras = codBarras;
             Descricao = descricao;
-            UnidadeVenda = unidadevenda;
-        {
-        public Produtos(double? valorunit, double? estoqueminimo)
-        {
-            ValorUnit = valorunit;
-            EstoqueMinimo = estoqueminimo;
-                    
-        {
-        public Produtos(int categoriaid, string? codbarras, string? descricao, string? unidadevenda, double? valorunit, double? estoqueminimo)
-        {
+            ValorUnit = valorUnit;
+            UnidadeVenda = unidadeVenda;
+            Categoria = categoria;
+            EstoqueMinimo = estoqueMinimo;
+            ClasseDesconto = classeDesconto;
+            DataCad = dataCad;
+        }
 
-             CategoriaId = Categoriaid;
-             CodBarras = codbarras;
-             Descricao = descricao;
-             UnidadeVenda = unidadevenda;
-             ValorUnit = valorunit;
-             EstoqueMinimo = estoqueminimo;
+        public Produto(string? codBarras, string? descricao, string? valorUnit, double? unidadeVenda, Categoria categoria, double? estoqueMinimo, string? classeDesconto)
         {
-            }
+            CodBarras = codBarras;
+            Descricao = descricao;
+            ValorUnit = valorUnit;
+            UnidadeVenda = unidadeVenda;
+            Categoria = categoria;
+            EstoqueMinimo = estoqueMinimo;
+            ClasseDesconto = classeDesconto;
+        }
+
+        public Produto(int id, string? codBarras, string? descricao, string? valorUnit, double? unidadeVenda, Categoria categoria, double? estoqueMinimo, string? classeDesconto, DateTime? dataCad)
+        {
+            Id = id;
+            CodBarras = codBarras;
+            Descricao = descricao;
+            ValorUnit = valorUnit;
+            UnidadeVenda = unidadeVenda;
+            Categoria = categoria;
+            EstoqueMinimo = estoqueMinimo;
+            ClasseDesconto = classeDesconto;
+            DataCad = dataCad;
+        }
             // inserir 
             public void Inserir()
             {
                 var cmd = Banco.Abrir();
-
-                // cmd.CommandText = $"insert into usuarios values (0, '{Nome}', '{Email}', md5('{Senha}'), {Nivel.Id}, default);";
-
-                cmd.CommandType = CommandType.StoredProcedure;
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
                 cmd.CommandText = "sp_usuario_insert";
-                cmd.Parameters.Add("spnome", MySql.Data.MySqlClient.MySqlDbType.VarChar).Value = Nome;
-                cmd.Parameters.AddWithValue("spemail", Email);
-                cmd.Parameters.AddWithValue("spsenha", Senha);
-                cmd.Parameters.AddWithValue("spnivel", Nivel.Id);
-                var dr = cmd.ExecuteReader();
+                cmd.Parameters.AddWithValue("spcod_barras", CodigoBarras);
+                cmd.Parameters.AddWithValue("spdescricao", Descricao);
+                cmd.Parameters.AddWithValue("spvalor_unit", ValorUnit);
+                cmd.Parameters.AddWithValue("spunidade_venda", UnidadeVenda);
+                cmd.Parameters.AddWithValue("spcategoria_id", Categoria.Id);
+                cmd.Parameters.AddWithValue("spestoque_minimo", EstoqueMinimo);
+                cmd.Parameters.AddWithValue("spclasse_desconto", Desconto);
+
+            var dr = cmd.ExecuteReader();
                 if (dr.Read())
                 {
                     Id = dr.GetInt32(0);
@@ -135,6 +156,19 @@ namespace SysTINSClass
                 return usuario;
             }
 
+        }
+    }
+public Produtos(int id, string? codBarras, string? descricao, string? valorUnit, double? unidadeVenda, Categoria categoria, double? estoqueMinimo, string? classeDesconto, DateTime? dataCad)
+        {
+            Id = id;
+            CodBarras = codBarras;
+            Descricao = descricao;
+            ValorUnit = valorUnit;
+            UnidadeVenda = unidadeVenda;
+            Categoria = categoria;
+            EstoqueMinimo = estoqueMinimo;
+            ClasseDesconto = classeDesconto;
+            DataCad = dataCad;
         }
     }
 //id int(4) AI PK 
