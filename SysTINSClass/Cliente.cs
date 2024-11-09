@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Reflection.Metadata.Ecma335;
+using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Threading.Tasks;
 /* id int(4) AI PK 
@@ -42,12 +43,10 @@ namespace SysTINSClass
 
         }
 
-        public Cliente(int id, string nome, string telefone, DateTime dataNasc)
+        public Cliente(int id)
         {
             Id = id;
-            Nome = nome;
-            Telefone = telefone;
-            DataNasc = dataNasc;
+
 
         }
         public void Inserir()
@@ -61,7 +60,8 @@ namespace SysTINSClass
             cmd.Parameters.AddWithValue("sptelefone", Telefone);
             cmd.Parameters.AddWithValue("spemail", Email);
             cmd.Parameters.AddWithValue("spdatanasc", DataNasc);
-            cmd.ExecuteNonQuery();
+
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
             cmd.Connection.Close();
         }
         public static Cliente ObterPorId(int id)
@@ -72,35 +72,61 @@ namespace SysTINSClass
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                cliente.Add(new(
-                    dr.GetInt32(0),
+                cliente = new(
+                    dr.GetString(0),
                     dr.GetString(1),
-                    dr.GetString(2)
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetDateTime(4)
                     ));
             }
 
             return cliente;
         }
-
-        public bool Atualizar()
-
+        public static List<Cliente> ObterPorLista()
         {
-            bool resposta = false;
+            List<Cliente> clientes = new();
             var cmd = Banco.Abrir();
-            cmd.CommandType = System.Data.CommandType.StoredProcedure;
-            cmd.Parameters.AddWithValue("spid", Id);
-            cmd.Parameters.AddWithValue("spnome", Nome);
-            cmd.Parameters.AddWithValue("sptelefone", Telefone);
-            cmd.Parameters.AddWithValue("spdatanasc", DataNasc);
-            if (cmd.ExecuteNonQuery() > 0)
+            cmd.CommandText = $"select * from clientess ordr by endereco asc";
+            var dr = cmd.ExecuteReader();
+            while (dr.Read())
             {
-                cmd.Connection.Close();
-                resposta = true;
+                clientes.Add(new(
+                    dr.GetString(0),
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    dr.GetDateTime(4)
+                    ));
             }
-            return resposta;
+            return clientes;
+
+                public bool Atualizar()
+            {
+                bool resposta = false;
+                var cmd = Banco.Abrir();
+                cmd.CommandType = System.Data.CommandType.StoredProcedure;
+                cmd.CommandText = "sp_usuario_update";
+                cmd.Parameters.AddWithValue("spid", Id);
+                if (cmd.ExecuteNonQuery() > 0)
+                {
+                    cmd.Connection.Close();
+                    return true;
+                }
+                return resposta;
+            }
         }
     }
 }
+            
+        
+    
+            
+            
+            
+        
+    
+
 
 
         
