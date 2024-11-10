@@ -29,7 +29,7 @@ namespace SysTINSApp
                 txtCodBarras.Text,
                 txtDescricao.Text,
                 txtValorUnit.Text,
-                txtUnidadeVenda.Text,
+                txtUnidVend.Text,
                 txtCategoriaId.Text,
                 txtEstoqueMinimo.Text,
                 txtClasseDesconto.Text,
