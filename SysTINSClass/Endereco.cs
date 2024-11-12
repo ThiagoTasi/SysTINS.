@@ -30,10 +30,8 @@ namespace SysTINSClass
         public string? UF { get; set; }
         public string? TipoEndereco { get; set; }
 
-        public Endereco()
-        {
-            Endereco = new();
-        }
+        public Endereco() { }
+       
 
         public Endereco(int id, Cliente cliente, string? cep, string? logradouro, string? numero, string? complemento, string? bairro, string? cidade, string? uF, string? tipoEndereco)
         {
@@ -94,7 +92,7 @@ namespace SysTINSClass
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                endereco new(
+                endereco = new Endereco(
                     dr.GetInt32(0),
                     dr.GetString(1),
                     dr.GetString(2),
@@ -105,9 +103,12 @@ namespace SysTINSClass
                     dr.GetString(7),
                     dr.GetString(8),
                     dr.GetString(9)
-                    ));
+                    );
             }
+            dr.Close();
+            cmd.Connection.Close();
             return endereco;
+        }
 
             /* }
 
@@ -131,8 +132,8 @@ namespace SysTINSClass
                          dr.GetString(8),
                          dr.GetString(9)
                          ));
-                 }*/
-            return enderecos;
+                 }
+            return enderecos;*/
 
             public bool Atualizar()
             {
@@ -151,9 +152,9 @@ namespace SysTINSClass
                 cmd.Parameters.AddWithValue("sptipo_endereco", TipoEndereco);
                 if (cmd.ExecuteNonQuery() > 0)
                 {
-                    cmd.Connection.Close();
                     return true;
                 }
+                cmd.Connection.Close();
                 return resposta;
             }
             public void Excluir()
@@ -167,7 +168,7 @@ namespace SysTINSClass
             }
         }
     }
-}
+
 
 
 

@@ -13,11 +13,10 @@ namespace SysTINSClass
         public int Id { get; set; }
         public string? Nome { get; set; }
         public string? Sigla { get; set; }
-    }
-    public Categoria()
-    {
+        public  Categoria()
+        {
 
-    }
+        }
     public Categoria(string? nome, string? sigla)
     {
         Nome = nome;
@@ -29,7 +28,12 @@ namespace SysTINSClass
         Nome = nome;
         Sigla = sigla;
     }
-    public void Inserir()
+    public Categoria(int id, string? nome)
+    {
+        Id = id;
+        Nome = nome;
+    }
+        public void Inserir()
     {
         var cmd = Banco.Abrir();
         cmd.CommandType = System.Data.CommandType.StoredProcedure;
@@ -45,16 +49,15 @@ namespace SysTINSClass
     public static Categoria ObterPorId(int id)
     {
         Categoria categoria = new();
-        var.cmd = Banco.Abrir();
+        var cmd = Banco.Abrir();
         cmd.CommandText = $"select * from categorias where id = {id}";
         var dr =cmd.ExecuteReader();
         while (dr.Read())
         {
             categoria = new(
                 dr.GetInt32(0),
-                dr.GetString(1),
-                dr.GetString(2)
-                );
+                dr.GetString(1)
+                 );
 
     
         }
@@ -63,36 +66,35 @@ namespace SysTINSClass
     public static List<Categoria> ObterLista()
     {
         List<Categoria> categorias = new();
-        var.cmd = Banco.Abrir();
+        var cmd = Banco.Abrir();
         cmd.CommandText = $"select * from categorias order by nome asc";
         var dr = cmd.ExecuteReader();
         while (dr.Read())
         {
             categorias.Add(new(
                 dr.GetInt32(0),
-                dr.GetString(1),
-                dr.GetString(2)
+                dr.GetString(1)
                 ));
         }
         return categorias;
     }
-    public bool Atualizar()
-    {
-        bool resposta = false;
-        var cmd = Banco.Abrir();
-        cmd.CommandType = System.Data.CommandType.StoredProcedure;
-        cmd.CommandText = "sp_categoria_update";
-        // spid int, spnome vatchar(40), spsigla char(3)
-        cmd.Parameters.AddWithValue("spid",Id);
-        cmd.Parameters.AddWithValue("spnome",Nome);
-        cmd.Parameters.AddWithValue("spsigla",Sigla);
-        if (cmd.ExecuteNonQuery() > 0)
+        public bool Atualizar()
         {
-            cmd.Connection.Close();
-            return true;
+            bool resposta = false;
+            var cmd = Banco.Abrir();
+            cmd.CommandType = System.Data.CommandType.StoredProcedure;
+            cmd.CommandText = "sp_categoria_update";
+            // spid int, spnome vatchar(40), spsigla char(3)
+            cmd.Parameters.AddWithValue("spid", Id);
+            cmd.Parameters.AddWithValue("spnome", Nome);
+            cmd.Parameters.AddWithValue("spsigla", Sigla);
+            if (cmd.ExecuteNonQuery() > 0)
+            {
+                cmd.Connection.Close();
+                return true;
+            }
+            return resposta;
         }
-        return resposta;
-
         public void Excluir()
         {
             var cmd = Banco.Abrir();

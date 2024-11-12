@@ -13,10 +13,10 @@ namespace SysTINSClass
         public string? CodBar { get; set; }
         public string? Descricao { get; set; }
         public double ValorUnit { get; set; }
-        public double? UnidadeVenda { get; set; }
+        public string? UnidadeVenda { get; set; }
         public Categoria Categoria { get; set; }
         public double EstoqueMinimo { get; set; }
-        public string ClasseDesconto { get; set; }
+        public double ClasseDesconto { get; set; }
         public DateTime? DataCad { get; set; }
 
 
@@ -26,7 +26,7 @@ namespace SysTINSClass
             Categoria = new();
         }
 
-        public Produto(string? codBarras, string? descricao, string? valorUnit, double? unidadeVenda, Categoria categoria, double? estoqueMinimo, string? classeDesconto, DateTime? dataCad)
+        public Produto(string codBar, string? descricao, double valorUnit, string? unidadeVenda, Categoria categoria, double estoqueMinimo, double classeDesconto)
         {
             CodBar = codBar;
             Descricao = descricao;
@@ -38,7 +38,7 @@ namespace SysTINSClass
 
         }
 
-        public Produto(int id, string? codBarras, string? descricao, string? valorUnit, double? unidadeVenda, Categoria categoria, double? estoqueMinimo, string? classeDesconto)
+        public Produto(int id, string codBar, string? descricao, double valorUnit, string? unidadeVenda, Categoria categoria, double estoqueMinimo, double classeDesconto, DateTime dataCad)
         {
             Id = Id;
             CodBar = codBar;
@@ -108,7 +108,7 @@ namespace SysTINSClass
                     dr.GetDouble(6),
                     dr.GetDouble(7),
                     dr.GetDateTime(9)
-                    );
+                    ));
 
             }
             return produtos;

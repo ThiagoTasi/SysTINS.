@@ -37,7 +37,20 @@ namespace SysTINSApp
             //}
             //else
             //    Application.Exit();
-                        
+
+        }
+
+        private void novoInserirToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void manterToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            FrmProdutos frmProdutos = new();
+            frmProdutos.MdiParent = this;
+            frmProdutos.Show();
+
         }
     }
 }

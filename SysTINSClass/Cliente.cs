@@ -30,7 +30,7 @@ namespace SysTINSClass
 
         public Cliente()
         {
-            Endereco = new();
+            Endereco = new List<Endereco>();
         }
 
         public Cliente(string nome, string cpf, string telefone, string email, DateTime dataNasc)
@@ -72,15 +72,18 @@ namespace SysTINSClass
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                cliente = new(
+                cliente = new Cliente(
                     dr.GetString(0),
                     dr.GetString(1),
                     dr.GetString(2),
                     dr.GetString(3),
-                    dr.GetDateTime(4)
-                    ));
+                    dr.GetDateTime(4),
+                    dr.GetDateTime(5),
+                    dr.GetDateTime(6)
+                    );
             }
-
+            dr.Close();
+            cmd.Connection.Close();
             return cliente;
         }
         public static List<Cliente> ObterPorLista()
@@ -91,17 +94,22 @@ namespace SysTINSClass
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                clientes.Add(new(
+                clientes.Add new(Cliente(
+                {
                     dr.GetString(0),
                     dr.GetString(1),
                     dr.GetString(2),
                     dr.GetString(3),
-                    dr.GetDateTime(4)
-                    ));
+                    dr.GetDateTime(4),
+                    dr.GetDateTime(5),
+                    dr.GetDateTime(6)
+                }));
             }
+            dr.Close();
+            cmd.Connection.Close();
             return clientes;
-
-                public bool Atualizar()
+        }
+            public bool Atualizar()
             {
                 bool resposta = false;
                 var cmd = Banco.Abrir();
@@ -113,11 +121,15 @@ namespace SysTINSClass
                     cmd.Connection.Close();
                     return true;
                 }
+                
+                cmd.Connection.Close();
                 return resposta;
             }
         }
     }
 }
+    
+
             
         
     
