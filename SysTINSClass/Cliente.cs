@@ -32,15 +32,24 @@ namespace SysTINSClass
         {
             Endereco = new List<Endereco>();
         }
+        public Cliente(int id, string? nome, string? cpf, string? telefone, string? email, DateTime dataNasc, DateTime dataCad)
+        {
+            Id = id;
+            Nome = nome;
+            Cpf = cpf;
+            Telefone = telefone;
+            Email = email;
+            DataNasc = dataNasc;
+            DataCad = dataCad;
+        }
 
-        public Cliente(string nome, string cpf, string telefone, string email, DateTime dataNasc)
+        public Cliente(string? nome, string? cpf, string? telefone, string? email, DateTime dataNasc)
         {
             Nome = nome;
             Cpf = cpf;
             Telefone = telefone;
             Email = email;
             DataNasc = dataNasc;
-
         }
 
         public Cliente(int id)
@@ -48,6 +57,7 @@ namespace SysTINSClass
             Id = id;
 
         }
+
         public void Inserir()
         {
 
@@ -76,9 +86,7 @@ namespace SysTINSClass
                     dr.GetString(1),
                     dr.GetString(2),
                     dr.GetString(3),
-                    dr.GetDateTime(4),
-                    dr.GetDateTime(5),
-                    dr.GetDateTime(6)
+                    dr.GetDateTime(4)
                     );
             }
             dr.Close();
@@ -93,16 +101,15 @@ namespace SysTINSClass
             var dr = cmd.ExecuteReader();
             while (dr.Read())
             {
-                clientes.Add new(Cliente(
-                {
+                clientes.Add (new Cliente(
+                
                     dr.GetString(0),
                     dr.GetString(1),
                     dr.GetString(2),
                     dr.GetString(3),
-                    dr.GetDateTime(4),
-                    dr.GetDateTime(5),
-                    dr.GetDateTime(6)
-                }));
+                    dr.GetDateTime(4)
+                    
+                ));
             }
             dr.Close();
             cmd.Connection.Close();
@@ -126,7 +133,7 @@ namespace SysTINSClass
             }
         }
     }
-}
+
     
 
             

@@ -84,7 +84,7 @@ namespace SysTINSClass
             cmd.ExecuteNonQuery();
             cmd.Connection.Close();
         }
-        public static Endereco ObterPorId(int id)
+        /*public static Endereco ObterPorId(int id)
         {
             Endereco endereco = new();
             var cmd = Banco.Abrir();
@@ -108,7 +108,7 @@ namespace SysTINSClass
             dr.Close();
             cmd.Connection.Close();
             return endereco;
-        }
+        }*/
 
             /* }
 
