@@ -47,7 +47,6 @@ namespace SysTINSClass
         {
             Id = id;
 
-
         }
         public void Inserir()
         {
