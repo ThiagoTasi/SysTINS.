@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace SysTINSApp
 {
@@ -16,5 +17,23 @@ namespace SysTINSApp
         {
             InitializeComponent();
         }
+
+        private void btnInserir_Click(object sender, EventArgs e)
+        {
+            Cliente cliente = new(
+
+                       txtNome.Text,
+                       txtCpf.Text,
+                       txtTelefone.Text,
+                       txtEmail.Text,
+                       txtData de nascimento.dateTimePicker1,
+            Cliente.Inserir();
+            if (cliente.Id > 0)
+            {
+               
+                MessageBox.Show($"Cliente {cliente.Nome} inserido com sucesso");
+                btnInserir.Enabled = false;
+            }
+        }
     }
-}
+    }

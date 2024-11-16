@@ -218,6 +218,7 @@
             btnCosultar.TabIndex = 8;
             btnCosultar.Text = "&Consultar";
             btnCosultar.UseVisualStyleBackColor = true;
+            btnCosultar.Click += btnCosultar_Click;
             // 
             // btnAdicionar
             // 
@@ -240,6 +241,7 @@
             btnEditar.TabIndex = 4;
             btnEditar.Text = "&Editar";
             btnEditar.UseVisualStyleBackColor = true;
+            btnEditar.Click += btnEditar_Click;
             // 
             // label7
             // 

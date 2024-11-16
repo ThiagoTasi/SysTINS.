@@ -40,12 +40,12 @@ namespace SysTINSApp
         }
         private void btnInserir_Click(object sender, EventArgs e)
         {
-                Usuario usuario = new(
-                txtNome.Text,
-                txtEmail.Text,
-                txtSenha.Text,
-                Nível.ObterPorId(Convert.ToInt32(cmbNivel.SelectedValue))
-                );
+            Usuario usuario = new(
+            txtNome.Text,
+            txtEmail.Text,
+            txtSenha.Text,
+            Nível.ObterPorId(Convert.ToInt32(cmbNivel.SelectedValue))
+            );
             usuario.Inserir();
             if (usuario.Id > 0)
             {
@@ -99,6 +99,11 @@ namespace SysTINSApp
                 CarregaGridUsuarios();
                 MessageBox.Show("Usuário atualizado com sucesso!");
             }
+
+        }
+
+        private void btnConsultar_Click(object sender, EventArgs e)
+        {
 
         }
     }

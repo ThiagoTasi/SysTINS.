@@ -55,9 +55,10 @@
             // 
             // btnInserir
             // 
-            btnInserir.Location = new Point(107, 227);
+            btnInserir.Location = new Point(122, 303);
+            btnInserir.Margin = new Padding(3, 4, 3, 4);
             btnInserir.Name = "btnInserir";
-            btnInserir.Size = new Size(75, 23);
+            btnInserir.Size = new Size(86, 31);
             btnInserir.TabIndex = 0;
             btnInserir.Text = "Inserir";
             btnInserir.UseVisualStyleBackColor = true;
@@ -65,19 +66,22 @@
             // 
             // btnConsultar
             // 
-            btnConsultar.Location = new Point(222, 227);
+            btnConsultar.Location = new Point(254, 303);
+            btnConsultar.Margin = new Padding(3, 4, 3, 4);
             btnConsultar.Name = "btnConsultar";
-            btnConsultar.Size = new Size(75, 23);
+            btnConsultar.Size = new Size(86, 31);
             btnConsultar.TabIndex = 1;
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = true;
+            btnConsultar.Click += btnConsultar_Click;
             // 
             // btnAtualizar
             // 
             btnAtualizar.Enabled = false;
-            btnAtualizar.Location = new Point(339, 228);
+            btnAtualizar.Location = new Point(387, 304);
+            btnAtualizar.Margin = new Padding(3, 4, 3, 4);
             btnAtualizar.Name = "btnAtualizar";
-            btnAtualizar.Size = new Size(75, 23);
+            btnAtualizar.Size = new Size(86, 31);
             btnAtualizar.TabIndex = 2;
             btnAtualizar.Text = "Atualizar";
             btnAtualizar.UseVisualStyleBackColor = true;
@@ -91,11 +95,13 @@
             dgvUsuarios.AllowUserToResizeRows = false;
             dgvUsuarios.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dgvUsuarios.Columns.AddRange(new DataGridViewColumn[] { clnId, clnNome, clnEmail, clnNivel, clnAtivo });
-            dgvUsuarios.Location = new Point(93, 292);
+            dgvUsuarios.Location = new Point(106, 389);
+            dgvUsuarios.Margin = new Padding(3, 4, 3, 4);
             dgvUsuarios.Name = "dgvUsuarios";
             dgvUsuarios.RowHeadersVisible = false;
+            dgvUsuarios.RowHeadersWidth = 51;
             dgvUsuarios.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
-            dgvUsuarios.Size = new Size(500, 150);
+            dgvUsuarios.Size = new Size(571, 200);
             dgvUsuarios.TabIndex = 3;
             dgvUsuarios.CellClick += dgvUsuarios_CellClick;
             // 
@@ -103,6 +109,7 @@
             // 
             clnId.Frozen = true;
             clnId.HeaderText = "ID";
+            clnId.MinimumWidth = 6;
             clnId.Name = "clnId";
             clnId.ReadOnly = true;
             clnId.Visible = false;
@@ -112,6 +119,7 @@
             // 
             clnNome.Frozen = true;
             clnNome.HeaderText = "Nome";
+            clnNome.MinimumWidth = 6;
             clnNome.Name = "clnNome";
             clnNome.ReadOnly = true;
             clnNome.Width = 180;
@@ -120,6 +128,7 @@
             // 
             clnEmail.Frozen = true;
             clnEmail.HeaderText = "Email";
+            clnEmail.MinimumWidth = 6;
             clnEmail.Name = "clnEmail";
             clnEmail.ReadOnly = true;
             clnEmail.Width = 180;
@@ -128,6 +137,7 @@
             // 
             clnNivel.Frozen = true;
             clnNivel.HeaderText = "Nivel";
+            clnNivel.MinimumWidth = 6;
             clnNivel.Name = "clnNivel";
             clnNivel.ReadOnly = true;
             clnNivel.Width = 60;
@@ -136,6 +146,7 @@
             // 
             clnAtivo.Frozen = true;
             clnAtivo.HeaderText = "Ativo";
+            clnAtivo.MinimumWidth = 6;
             clnAtivo.Name = "clnAtivo";
             clnAtivo.ReadOnly = true;
             clnAtivo.Width = 40;
@@ -143,36 +154,36 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(107, 70);
+            label1.Location = new Point(122, 93);
             label1.Name = "label1";
-            label1.Size = new Size(18, 15);
+            label1.Size = new Size(24, 20);
             label1.TabIndex = 4;
             label1.Text = "ID";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(198, 69);
+            label2.Location = new Point(226, 92);
             label2.Name = "label2";
-            label2.Size = new Size(40, 15);
+            label2.Size = new Size(50, 20);
             label2.TabIndex = 5;
             label2.Text = "Nome";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(113, 123);
+            label3.Location = new Point(129, 164);
             label3.Name = "label3";
-            label3.Size = new Size(36, 15);
+            label3.Size = new Size(46, 20);
             label3.TabIndex = 6;
             label3.Text = "Email";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(113, 172);
+            label4.Location = new Point(129, 229);
             label4.Name = "label4";
-            label4.Size = new Size(39, 15);
+            label4.Size = new Size(49, 20);
             label4.TabIndex = 7;
             label4.Text = "Senha";
             // 
@@ -180,17 +191,18 @@
             // 
             cmbNivel.DropDownStyle = ComboBoxStyle.DropDownList;
             cmbNivel.FormattingEnabled = true;
-            cmbNivel.Location = new Point(472, 146);
+            cmbNivel.Location = new Point(539, 195);
+            cmbNivel.Margin = new Padding(3, 4, 3, 4);
             cmbNivel.Name = "cmbNivel";
-            cmbNivel.Size = new Size(121, 23);
+            cmbNivel.Size = new Size(138, 28);
             cmbNivel.TabIndex = 8;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(472, 128);
+            label5.Location = new Point(539, 171);
             label5.Name = "label5";
-            label5.Size = new Size(34, 15);
+            label5.Size = new Size(43, 20);
             label5.TabIndex = 9;
             label5.Text = "Nível";
             // 
@@ -200,65 +212,71 @@
             chkAtivo.Checked = true;
             chkAtivo.CheckState = CheckState.Checked;
             chkAtivo.Enabled = false;
-            chkAtivo.Location = new Point(392, 191);
+            chkAtivo.Location = new Point(448, 255);
+            chkAtivo.Margin = new Padding(3, 4, 3, 4);
             chkAtivo.Name = "chkAtivo";
-            chkAtivo.Size = new Size(54, 19);
+            chkAtivo.Size = new Size(66, 24);
             chkAtivo.TabIndex = 10;
             chkAtivo.Text = "Ativo";
             chkAtivo.UseVisualStyleBackColor = true;
             // 
             // txtId
             // 
-            txtId.Location = new Point(107, 90);
+            txtId.Location = new Point(122, 120);
+            txtId.Margin = new Padding(3, 4, 3, 4);
             txtId.Name = "txtId";
             txtId.ReadOnly = true;
-            txtId.Size = new Size(55, 23);
+            txtId.Size = new Size(62, 27);
             txtId.TabIndex = 11;
             // 
             // txtNome
             // 
-            txtNome.Location = new Point(197, 90);
+            txtNome.Location = new Point(225, 120);
+            txtNome.Margin = new Padding(3, 4, 3, 4);
             txtNome.Name = "txtNome";
-            txtNome.Size = new Size(396, 23);
+            txtNome.Size = new Size(452, 27);
             txtNome.TabIndex = 12;
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(107, 146);
+            txtEmail.Location = new Point(122, 195);
+            txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(344, 23);
+            txtEmail.Size = new Size(393, 27);
             txtEmail.TabIndex = 13;
             // 
             // txtSenha
             // 
-            txtSenha.Location = new Point(107, 191);
+            txtSenha.Location = new Point(122, 255);
+            txtSenha.Margin = new Padding(3, 4, 3, 4);
             txtSenha.Name = "txtSenha";
-            txtSenha.Size = new Size(100, 23);
+            txtSenha.Size = new Size(114, 27);
             txtSenha.TabIndex = 14;
             txtSenha.UseSystemPasswordChar = true;
             // 
             // txtConfSenha
             // 
-            txtConfSenha.Location = new Point(222, 191);
+            txtConfSenha.Location = new Point(254, 255);
+            txtConfSenha.Margin = new Padding(3, 4, 3, 4);
             txtConfSenha.Name = "txtConfSenha";
-            txtConfSenha.Size = new Size(100, 23);
+            txtConfSenha.Size = new Size(114, 27);
             txtConfSenha.TabIndex = 14;
             txtConfSenha.UseSystemPasswordChar = true;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(222, 172);
+            label6.Location = new Point(254, 229);
             label6.Name = "label6";
-            label6.Size = new Size(92, 15);
+            label6.Size = new Size(114, 20);
             label6.TabIndex = 7;
             label6.Text = "Confirma Senha";
             // 
             // FrmUsuarios
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 475);
+            ClientSize = new Size(914, 633);
             Controls.Add(txtConfSenha);
             Controls.Add(txtSenha);
             Controls.Add(txtEmail);
@@ -276,6 +294,7 @@
             Controls.Add(btnAtualizar);
             Controls.Add(btnConsultar);
             Controls.Add(btnInserir);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmUsuarios";
             Text = "FrmUsuarios";
             Load += FrmUsuarios_Load;

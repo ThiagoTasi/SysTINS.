@@ -112,8 +112,15 @@ namespace SysTINSApp
             cmbCategoria.SelectedIndex = 0;
         }
 
-        
+        private void btnCosultar_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnEditar_Click(object sender, EventArgs e)
+        {
 
         }
     }
+}
 
