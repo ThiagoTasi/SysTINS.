@@ -30,10 +30,15 @@ namespace SysTINSApp
             Cliente.Inserir();
             if (cliente.Id > 0)
             {
-               
+
                 MessageBox.Show($"Cliente {cliente.Nome} inserido com sucesso");
                 btnInserir.Enabled = false;
             }
         }
+
+        private void FrmNovoCliente_Load(object sender, EventArgs e)
+        {
+
+        }
     }
-    }
+}

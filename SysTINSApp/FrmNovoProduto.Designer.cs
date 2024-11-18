@@ -43,53 +43,57 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(12, 71);
+            label1.Location = new Point(10, 53);
             label1.Name = "label1";
-            label1.Size = new Size(124, 20);
+            label1.Size = new Size(97, 15);
             label1.TabIndex = 0;
             label1.Text = "Código de Barras";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(386, 71);
+            label2.Location = new Point(338, 53);
             label2.Name = "label2";
-            label2.Size = new Size(74, 20);
+            label2.Size = new Size(58, 15);
             label2.TabIndex = 1;
             label2.Text = "Descrição";
             // 
             // txtCodBar
             // 
-            txtCodBar.Location = new Point(12, 107);
+            txtCodBar.Location = new Point(10, 80);
+            txtCodBar.Margin = new Padding(3, 2, 3, 2);
             txtCodBar.Name = "txtCodBar";
-            txtCodBar.Size = new Size(316, 27);
+            txtCodBar.Size = new Size(277, 23);
             txtCodBar.TabIndex = 2;
             // 
             // txtDescricao
             // 
-            txtDescricao.Location = new Point(386, 107);
+            txtDescricao.Location = new Point(338, 80);
+            txtDescricao.Margin = new Padding(3, 2, 3, 2);
             txtDescricao.Name = "txtDescricao";
-            txtDescricao.Size = new Size(250, 27);
+            txtDescricao.Size = new Size(219, 23);
             txtDescricao.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(241, 17);
+            label3.Location = new Point(246, 9);
             label3.Name = "label3";
-            label3.Size = new Size(138, 20);
+            label3.Size = new Size(109, 15);
             label3.TabIndex = 4;
             label3.Text = "NOVOS PRODUTOS";
+            label3.Click += label3_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2 });
-            dataGridView1.Location = new Point(12, 215);
+            dataGridView1.Location = new Point(10, 161);
+            dataGridView1.Margin = new Padding(3, 2, 3, 2);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(624, 188);
+            dataGridView1.Size = new Size(546, 141);
             dataGridView1.TabIndex = 5;
             // 
             // Column1
@@ -108,9 +112,10 @@
             // 
             // btnInserir
             // 
-            btnInserir.Location = new Point(645, 418);
+            btnInserir.Location = new Point(564, 314);
+            btnInserir.Margin = new Padding(3, 2, 3, 2);
             btnInserir.Name = "btnInserir";
-            btnInserir.Size = new Size(94, 29);
+            btnInserir.Size = new Size(82, 22);
             btnInserir.TabIndex = 6;
             btnInserir.Text = "Inserir";
             btnInserir.UseVisualStyleBackColor = true;
@@ -118,9 +123,9 @@
             // 
             // FrmNovoProduto
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(700, 338);
             Controls.Add(btnInserir);
             Controls.Add(dataGridView1);
             Controls.Add(label3);
@@ -128,6 +133,7 @@
             Controls.Add(txtCodBar);
             Controls.Add(label2);
             Controls.Add(label1);
+            Margin = new Padding(3, 2, 3, 2);
             Name = "FrmNovoProduto";
             Text = "FrmNovoProduto";
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();

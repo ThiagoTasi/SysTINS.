@@ -20,17 +20,22 @@ namespace SysTINSApp
 
         private void btnInserir_Click(object sender, EventArgs e)
         {
-             Produto produto = new(
+            Produto produto = new(
 
-                       txtCodBar.Text,
-                       txtDescricao.Text,
-            Produto.Inserir());
+                      txtCodBar.Text,
+                      txtDescricao.Text,
+           Produto.Inserir());
             if (produto.Id > 0)
             {
 
                 MessageBox.Show($"Produto {produto.Nome} inserido com sucesso");
                 btnInserir.Enabled = false;
             }
+        }
+
+        private void label3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
