@@ -69,81 +69,81 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(14, 63);
+            label1.Location = new Point(12, 47);
             label1.Name = "label1";
-            label1.Size = new Size(22, 20);
+            label1.Size = new Size(17, 15);
             label1.TabIndex = 0;
             label1.Text = "Id";
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(179, 63);
+            label2.Location = new Point(157, 47);
             label2.Name = "label2";
-            label2.Size = new Size(68, 20);
+            label2.Size = new Size(54, 15);
             label2.TabIndex = 1;
             label2.Text = "ClienteId";
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(14, 155);
+            label3.Location = new Point(12, 116);
             label3.Name = "label3";
-            label3.Size = new Size(34, 20);
+            label3.Size = new Size(28, 15);
             label3.TabIndex = 2;
             label3.Text = "CEP";
             // 
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(179, 155);
+            label4.Location = new Point(157, 116);
             label4.Name = "label4";
-            label4.Size = new Size(87, 20);
+            label4.Size = new Size(69, 15);
             label4.TabIndex = 3;
             label4.Text = "Logradouro";
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(455, 155);
+            label5.Location = new Point(398, 116);
             label5.Name = "label5";
-            label5.Size = new Size(63, 20);
+            label5.Size = new Size(51, 15);
             label5.TabIndex = 4;
             label5.Text = "Numero";
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(14, 248);
+            label6.Location = new Point(12, 186);
             label6.Name = "label6";
-            label6.Size = new Size(104, 20);
+            label6.Size = new Size(84, 15);
             label6.TabIndex = 5;
             label6.Text = "Complemento";
             // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(215, 248);
+            label7.Location = new Point(188, 186);
             label7.Name = "label7";
-            label7.Size = new Size(49, 20);
+            label7.Size = new Size(38, 15);
             label7.TabIndex = 6;
             label7.Text = "Bairro";
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(569, 155);
+            label8.Location = new Point(498, 116);
             label8.Name = "label8";
-            label8.Size = new Size(56, 20);
+            label8.Size = new Size(44, 15);
             label8.TabIndex = 7;
             label8.Text = "Cidade";
             // 
             // label9
             // 
             label9.AutoSize = true;
-            label9.Location = new Point(455, 248);
+            label9.Location = new Point(398, 186);
             label9.Name = "label9";
-            label9.Size = new Size(26, 20);
+            label9.Size = new Size(21, 15);
             label9.TabIndex = 8;
             label9.Text = "UF";
             label9.Click += label9_Click;
@@ -151,102 +151,91 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(594, 248);
+            label10.Location = new Point(520, 186);
             label10.Name = "label10";
-            label10.Size = new Size(126, 20);
+            label10.Size = new Size(98, 15);
             label10.TabIndex = 9;
             label10.Text = "Tipo de endereco";
             // 
             // txtId
             // 
-            txtId.Location = new Point(14, 87);
-            txtId.Margin = new Padding(3, 4, 3, 4);
+            txtId.Location = new Point(12, 65);
             txtId.Name = "txtId";
-            txtId.Size = new Size(114, 27);
+            txtId.Size = new Size(100, 23);
             txtId.TabIndex = 10;
             // 
             // txtClienteId
             // 
-            txtClienteId.Location = new Point(179, 87);
-            txtClienteId.Margin = new Padding(3, 4, 3, 4);
+            txtClienteId.Location = new Point(157, 65);
             txtClienteId.Name = "txtClienteId";
-            txtClienteId.Size = new Size(114, 27);
+            txtClienteId.Size = new Size(100, 23);
             txtClienteId.TabIndex = 11;
             // 
             // txtCep
             // 
-            txtCep.Location = new Point(14, 179);
-            txtCep.Margin = new Padding(3, 4, 3, 4);
+            txtCep.Location = new Point(12, 134);
             txtCep.Name = "txtCep";
-            txtCep.Size = new Size(114, 27);
+            txtCep.Size = new Size(100, 23);
             txtCep.TabIndex = 12;
             // 
             // txtLogradouro
             // 
-            txtLogradouro.Location = new Point(179, 179);
-            txtLogradouro.Margin = new Padding(3, 4, 3, 4);
+            txtLogradouro.Location = new Point(157, 134);
             txtLogradouro.Name = "txtLogradouro";
-            txtLogradouro.Size = new Size(250, 27);
+            txtLogradouro.Size = new Size(219, 23);
             txtLogradouro.TabIndex = 13;
             // 
             // txtNumero
             // 
-            txtNumero.Location = new Point(455, 179);
-            txtNumero.Margin = new Padding(3, 4, 3, 4);
+            txtNumero.Location = new Point(398, 134);
             txtNumero.Name = "txtNumero";
-            txtNumero.Size = new Size(92, 27);
+            txtNumero.Size = new Size(81, 23);
             txtNumero.TabIndex = 14;
             // 
             // txtCidade
             // 
-            txtCidade.Location = new Point(569, 179);
-            txtCidade.Margin = new Padding(3, 4, 3, 4);
+            txtCidade.Location = new Point(498, 134);
             txtCidade.Name = "txtCidade";
-            txtCidade.Size = new Size(235, 27);
+            txtCidade.Size = new Size(206, 23);
             txtCidade.TabIndex = 15;
             // 
             // txtComplemento
             // 
-            txtComplemento.Location = new Point(14, 272);
-            txtComplemento.Margin = new Padding(3, 4, 3, 4);
+            txtComplemento.Location = new Point(12, 204);
             txtComplemento.Name = "txtComplemento";
-            txtComplemento.Size = new Size(172, 27);
+            txtComplemento.Size = new Size(151, 23);
             txtComplemento.TabIndex = 16;
             // 
             // txtBairro
             // 
-            txtBairro.Location = new Point(215, 272);
-            txtBairro.Margin = new Padding(3, 4, 3, 4);
+            txtBairro.Location = new Point(188, 204);
             txtBairro.Name = "txtBairro";
-            txtBairro.Size = new Size(221, 27);
+            txtBairro.Size = new Size(194, 23);
             txtBairro.TabIndex = 17;
             // 
             // txtUF
             // 
-            txtUF.Location = new Point(455, 272);
-            txtUF.Margin = new Padding(3, 4, 3, 4);
+            txtUF.Location = new Point(398, 204);
             txtUF.Name = "txtUF";
-            txtUF.Size = new Size(114, 27);
+            txtUF.Size = new Size(100, 23);
             txtUF.TabIndex = 18;
             // 
             // txtTipoEndereco
             // 
-            txtTipoEndereco.Location = new Point(594, 272);
-            txtTipoEndereco.Margin = new Padding(3, 4, 3, 4);
+            txtTipoEndereco.Location = new Point(520, 204);
             txtTipoEndereco.Name = "txtTipoEndereco";
-            txtTipoEndereco.Size = new Size(188, 27);
+            txtTipoEndereco.Size = new Size(165, 23);
             txtTipoEndereco.TabIndex = 19;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Column1, Column2, Column3, Column4, Column5, Column6, Column7, Column8, Column9, Column10 });
-            dataGridView1.Location = new Point(14, 432);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Location = new Point(12, 324);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidthSizeMode = DataGridViewRowHeadersWidthSizeMode.AutoSizeToAllHeaders;
-            dataGridView1.Size = new Size(1144, 212);
+            dataGridView1.Size = new Size(1001, 159);
             dataGridView1.TabIndex = 20;
             // 
             // Column1
@@ -322,18 +311,17 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(416, 12);
+            label11.Location = new Point(364, 9);
             label11.Name = "label11";
-            label11.Size = new Size(92, 20);
+            label11.Size = new Size(72, 15);
             label11.TabIndex = 21;
             label11.Text = "ENDEREÇOS";
             // 
             // btnInserir
             // 
-            btnInserir.Location = new Point(14, 373);
-            btnInserir.Margin = new Padding(3, 4, 3, 4);
+            btnInserir.Location = new Point(12, 280);
             btnInserir.Name = "btnInserir";
-            btnInserir.Size = new Size(86, 31);
+            btnInserir.Size = new Size(75, 23);
             btnInserir.TabIndex = 22;
             btnInserir.Text = "Inserir";
             btnInserir.UseVisualStyleBackColor = true;
@@ -341,10 +329,9 @@
             // 
             // btnConsultar
             // 
-            btnConsultar.Location = new Point(439, 373);
-            btnConsultar.Margin = new Padding(3, 4, 3, 4);
+            btnConsultar.Location = new Point(384, 280);
             btnConsultar.Name = "btnConsultar";
-            btnConsultar.Size = new Size(86, 31);
+            btnConsultar.Size = new Size(75, 23);
             btnConsultar.TabIndex = 23;
             btnConsultar.Text = "Consultar";
             btnConsultar.UseVisualStyleBackColor = true;
@@ -352,10 +339,9 @@
             // 
             // btnAtualizar
             // 
-            btnAtualizar.Location = new Point(890, 393);
-            btnAtualizar.Margin = new Padding(3, 4, 3, 4);
+            btnAtualizar.Location = new Point(779, 295);
             btnAtualizar.Name = "btnAtualizar";
-            btnAtualizar.Size = new Size(86, 31);
+            btnAtualizar.Size = new Size(75, 23);
             btnAtualizar.TabIndex = 24;
             btnAtualizar.Text = "Atualizar";
             btnAtualizar.UseVisualStyleBackColor = true;
@@ -363,9 +349,9 @@
             // 
             // FrmEndereco
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1183, 679);
+            ClientSize = new Size(1035, 509);
             Controls.Add(btnAtualizar);
             Controls.Add(btnConsultar);
             Controls.Add(btnInserir);
@@ -391,9 +377,9 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FrmEndereco";
             Text = "FrmEndereco";
+            Load += FrmEndereco_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();

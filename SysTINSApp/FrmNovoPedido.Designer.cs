@@ -112,6 +112,7 @@
             btnInserePedido.TabIndex = 1;
             btnInserePedido.Text = "Abrir";
             btnInserePedido.UseVisualStyleBackColor = true;
+            btnInserePedido.Click += btnInserePedido_Click;
             // 
             // txtIdCliente
             // 
@@ -319,6 +320,7 @@
             btnAddItem.TabIndex = 5;
             btnAddItem.Text = "A&dicionar";
             btnAddItem.UseVisualStyleBackColor = true;
+            btnAddItem.Click += btnAddItem_Click;
             // 
             // dgvItensPedido
             // 
@@ -544,7 +546,7 @@
         private Label label1;
         private Label label2;
         private TextBox txtIdPedido;
-        private TextBox txtUsuario;
+        public TextBox txtUsuario;
         private TextBox textBox3;
         private Button btnInserePedido;
         private TextBox txtIdCliente;

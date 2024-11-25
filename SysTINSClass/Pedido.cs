@@ -67,6 +67,7 @@ namespace SysTINSClass
             cmd.Parameters.AddWithValue("spstatus", Status);
             cmd.Parameters.AddWithValue("spdesconto", Desconto);
             cmd.ExecuteNonQuery();
+            Id = Convert.ToInt32(cmd.ExecuteScalar());
             cmd.Connection.Close();
         }
         public static Pedido ObterPorId(int id)

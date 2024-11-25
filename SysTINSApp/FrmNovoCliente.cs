@@ -26,8 +26,8 @@ namespace SysTINSApp
                        txtCpf.Text,
                        txtTelefone.Text,
                        txtEmail.Text,
-                       txtData de nascimento.dateTimePicker1,
-            Cliente.Inserir();
+                       txtDatadenascimento.dateTimePicker1,
+            Cliente.Inserir());
             if (cliente.Id > 0)
             {
 

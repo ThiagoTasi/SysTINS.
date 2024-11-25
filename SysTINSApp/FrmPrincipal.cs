@@ -33,7 +33,7 @@ namespace SysTINSApp
             //if (frmLogin.ShowDialog() == DialogResult.OK)
             //{
             //    tsslUsuario.Text = Program.UsuarioLogado.Nome + " - " + Program.UsuarioLogado.Nivel.Nome;
-               Show();
+            Show();
             //}
             //else
             //    Application.Exit();
@@ -51,6 +51,18 @@ namespace SysTINSApp
             frmProdutos.MdiParent = this;
             frmProdutos.Show();
 
+
+
+          
+
+        }
+
+        private void novoToolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            FrmNovoPedido frmNovoPedido = new();
+            frmNovoPedido.MdiParent = this;
+            frmNovoPedido.txtUsuario.Text = Program.UsuarioLogado.Id + " - " + Program.UsuarioLogado.Nome;
+           frmNovoPedido.Show();
         }
     }
 }

@@ -32,21 +32,21 @@ namespace SysTINSApp
         private void btnInserir_Click(object sender, EventArgs e)
         {
 
-        Endereco endereco = new(
-        txtClienteId.Text,
-        txtCep.Text,
-        txtLogradouro.Text,
-        txtNumero.Text,
-        txtComplemento.Text,
-        txtBairro.Text,
-        txtCidade.Text,
-        txtUF.Text
-            );
+            Endereco endereco = new(
+            txtClienteId.Text,
+            txtCep.Text,
+            txtLogradouro.Text,
+            txtNumero.Text,
+            txtComplemento.Text,
+            txtBairro.Text,
+            txtCidade.Text,
+            txtUF.Text
+                );
             endereco.Inserir();
             if (endereco.Id > 0)
             {
                 txtId.Text = endereco.Id.ToString();
-                MessageBox.Show($"Enderecoo cadastrado com o ID {endereco.Id}");
+                MessageBox.Show($"Endereco cadastrado com o ID {endereco.Id}");
                 btnInserir.Enabled = false;
 
             }
@@ -71,9 +71,14 @@ namespace SysTINSApp
 
             if (endereco.Atualizar())
             {
-                
+
                 MessageBox.Show("Enderecoo atualizado com sucesso!");
             }
+
+        }
+
+        private void FrmEndereco_Load(object sender, EventArgs e)
+        {
 
         }
     }

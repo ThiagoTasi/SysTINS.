@@ -1,5 +1,4 @@
-using SysTINSClass;
-
+﻿using SysTINSApp; 
 namespace SysTINSApp
 {
     internal static class Program

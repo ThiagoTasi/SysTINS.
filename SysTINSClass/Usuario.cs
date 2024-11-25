@@ -1,8 +1,12 @@
-﻿using System;
+﻿using K4os.Compression.LZ4.Internal;
+using MySql.Data.MySqlClient;
+using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Data;
 using System.Linq;
-using System.Runtime.InteropServices;
+using System.Net.Mail;
+using System.Reflection.Metadata;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -10,31 +14,36 @@ namespace SysTINSClass
 {
     public class Usuario
     {
-        public int Id { get; set; }
-        public string? Nome { get; set; }
-        public string? Email { get; set; }
-        public string? Senha { get; set; }
-        public Nivel Nivel { get; set; }
-        public bool Ativo { get; set; }
+        public int Id;
+        public string? Nome;
+        public string? Email;
+        public string? Senha;
+        public Nivel Nivel;
+        public bool Ativo;
 
-        public Usuario() 
+        public Usuario()
         {
-            Nivel = new();
+            Nivel = new Nivel();
         }
+
         public Usuario(string nome, string email, string senha, Nivel nivel)
         {
+
             Nome = nome;
             Email = email;
             Senha = senha;
             Nivel = nivel;
+
         }
         public Usuario(string nome, string email, string senha, Nivel nivel, bool ativo)
         {
+
             Nome = nome;
             Email = email;
             Senha = senha;
             Nivel = nivel;
             Ativo = ativo;
+
         }
         public Usuario(int id, string nome, string email, string senha, Nivel nivel, bool ativo)
         {
@@ -45,16 +54,13 @@ namespace SysTINSClass
             Nivel = nivel;
             Ativo = ativo;
         }
-        // inserir 
-        public void Inserir() 
+        //inserir usuario
+        public void Inserir()
         {
             var cmd = Banco.Abrir();
-
-           // cmd.CommandText = $"insert into usuarios values (0, '{Nome}', '{Email}', md5('{Senha}'), {Nivel.Id}, default);";
-
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_usuario_insert";
-            cmd.Parameters.Add("spnome",MySql.Data.MySqlClient.MySqlDbType.VarChar).Value=Nome;
+            cmd.Parameters.Add("spnome", MySql.Data.MySqlClient.MySqlDbType.VarChar).Value = Nome;
             cmd.Parameters.AddWithValue("spemail", Email);
             cmd.Parameters.AddWithValue("spsenha", Senha);
             cmd.Parameters.AddWithValue("spnivel", Nivel.Id);
@@ -65,27 +71,27 @@ namespace SysTINSClass
             }
             cmd.Connection.Close();
         }
-        // ObterPorId
-        public static Usuario ObterPorId(int id) 
+        //Obter por id
+        public static Usuario ObterPorId(int id)
         {
-            Usuario usuario = new();
+            Usuario usuario = new Usuario();
             var cmd = Banco.Abrir();
             cmd.CommandText = $"select * from usuarios where id = {id}";
             var dr = cmd.ExecuteReader();
             if (dr.Read())
             {
                 usuario = new(
-                        dr.GetInt32(0),
-                        dr.GetString(1),
-                        dr.GetString(2),
-                        dr.GetString(3),
-                        Nivel.ObterPorId(dr.GetInt32(4)),
-                        dr.GetBoolean(5)
+                    dr.GetInt32(0),
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    Nivel.ObterPorId(dr.GetInt32(4)),
+                    dr.GetBoolean(5)
                     );
             }
             return usuario;
         }
-        public static List<Usuario> ObterLista() 
+        public static List<Usuario> ObterLista()
         {
             List<Usuario> lista = new();
             var cmd = Banco.Abrir();
@@ -94,29 +100,33 @@ namespace SysTINSClass
             while (dr.Read())
             {
                 lista.Add(new(
-                        dr.GetInt32(0),
-                        dr.GetString(1),
-                        dr.GetString(2),
-                        dr.GetString(3),
-                        Nivel.ObterPorId(dr.GetInt32(4)),
-                        dr.GetBoolean(5)
+                    dr.GetInt32(0),
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    Nivel.ObterPorId(dr.GetInt32(4)),
+                    dr.GetBoolean(5)
+
                     )
                 );
             }
-            return lista;            
+
+            return lista;
         }
-        public bool Atualizar() 
+        public bool Atualizar()
         {
             var cmd = Banco.Abrir();
             cmd.CommandType = CommandType.StoredProcedure;
             cmd.CommandText = "sp_usuario_altera";
-            cmd.Parameters.AddWithValue("spid",Id);
+            cmd.Parameters.AddWithValue("spid", Id);
             cmd.Parameters.AddWithValue("spnome", Nome);
             cmd.Parameters.AddWithValue("spsenha", Senha);
             cmd.Parameters.AddWithValue("spnivel", Nivel.Id);
             return cmd.ExecuteNonQuery() > 0 ? true : false;
+
+
         }
-        // efetuar login
+        //efetuar login
         public static Usuario EfetuarLogin(string email, string senha)
         {
             Usuario usuario = new();
@@ -127,40 +137,15 @@ namespace SysTINSClass
             {
                 usuario = new(
                         dr.GetInt32(0),
-                        dr.GetString(1),
-                        dr.GetString(2),
-                        dr.GetString(3),
-                        Nivel.ObterPorId(dr.GetInt32(4)),
-                        dr.GetBoolean(5)
-                    );
+                    dr.GetString(1),
+                    dr.GetString(2),
+                    dr.GetString(3),
+                    Nivel.ObterPorId(dr.GetInt32(4)),
+                    dr.GetBoolean(5)
+                   );
             }
             return usuario;
         }
-
     }
 }
-//id int(4) AI PK 
-//nome varchar(60) 
-//email varchar(60) 
-//senha varchar(32) 
-//nivel_id int(11) 
-//ativo bit(1)
-
-//CREATE DEFINER =`root`@`localhost` PROCEDURE `sp_usuario_altera`(
-//-- parâmetros da procedure
-//spid int, spnome varchar(60), spsenha varchar(32), spnivel int)
-//begin
-//	update usuarios 
-//	set nome = spnome, senha = md5(spsenha), nivel_id = spnivel where id = spid;
-//end$$
-
-//CREATE DEFINER =`root`@`localhost` PROCEDURE `sp_usuario_insert`(
-//-- parâmetros da procedure
-//spnome varchar(60), spemail varchar(60), spsenha varchar(32), spnivel int)
-//begin
-//	insert into usuarios 
-//	values (0, spnome, spemail, md5(spsenha), spnivel, default);
-//select* from usuarios where id = last_insert_id();
-//end$$
-
 
