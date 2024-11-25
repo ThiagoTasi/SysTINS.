@@ -1,5 +1,4 @@
 using SysTINSClass;
-
 namespace SysTINSApp
 {
     internal static class Program
